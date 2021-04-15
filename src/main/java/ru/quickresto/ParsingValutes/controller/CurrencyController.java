@@ -1,5 +1,6 @@
 package ru.quickresto.ParsingValutes.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,9 @@ public class CurrencyController {
     @Value("${limit}")
     private int limit;
 
-    final CurrencyService currencyService;
+    private CurrencyService currencyService;
 
+    @Autowired
     public CurrencyController(CurrencyService currencyService) {
         this.currencyService = currencyService;
     }
